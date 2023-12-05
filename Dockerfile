@@ -13,8 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Install private package
 RUN pip install .
 
-# Expose port 8000 for the FastAPI application
-EXPOSE 8000
-
 # Run app.py when the container launches
-CMD ["python", "src/app/app.py"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
