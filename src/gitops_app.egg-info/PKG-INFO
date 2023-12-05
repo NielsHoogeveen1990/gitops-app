@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: gitops-app
+Version: 0.0.1
+Summary: Code to deploy gitops api app
+Author-email: Niels Hoogeveen <hoogeveen.n.a@gmail.com>
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown

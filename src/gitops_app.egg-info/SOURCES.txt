@@ -1,0 +1,8 @@
+README.md
+pyproject.toml
+src/app/__init__.py
+src/app/app.py
+src/gitops_app.egg-info/PKG-INFO
+src/gitops_app.egg-info/SOURCES.txt
+src/gitops_app.egg-info/dependency_links.txt
+src/gitops_app.egg-info/top_level.txt
