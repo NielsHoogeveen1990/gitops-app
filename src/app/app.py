@@ -23,7 +23,7 @@ async def root():
 
 @app.get("/welcome")
 async def welcome():
-    return {"message": "Welcome user!"}
+    return {"message": "Welcome user new!"}
 
 
 if __name__ == "__main__":
