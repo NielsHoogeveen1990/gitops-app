@@ -1,4 +1,4 @@
-name: modifygit
+name: Modify Git
 
 on:
   push:
