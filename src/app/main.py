@@ -18,7 +18,7 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to the root page"}
+    return {"message": "Welcome to the root page NEW!"}
 
 
 @app.get("/welcome")
