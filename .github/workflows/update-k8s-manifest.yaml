@@ -20,10 +20,10 @@ jobs:
           git config user.email hoogeveen.n.a@gmail.com
           git config user.name NielsHoogeveen1990
           pwd
-          cat deployment.yaml
+          cat manifests/deployment.yaml
           pwd
           sed -i "s+nielshoogeveen1990/images.*+nielshoogeveen1990/images:app-$RUN_NUMBER+g" deployment.yaml
-          cat deployment.yaml
+          cat manifests/deployment.yaml
           git add .
           git commit -m 'Done  by Github Actions   Job changemanifest: ${{ github.run_number }}'
           git push origin main
