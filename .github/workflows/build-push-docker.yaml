@@ -33,3 +33,29 @@ jobs:
           push: true
           tags: nielshoogeveen1990/gitops-app:app-${{ github.run_number }}
           labels: ${{ steps.meta.outputs.labels }}
+
+  modifygit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        name: Changing the deployment of git repo
+        with:
+          repository: 'NielsHoogeveen1990/gitops-manifest'
+          token: ${{ secrets.GIT_PASSWORD }}
+      - name: Modify the image
+        run: |
+          git config user.email hoogeveen.n.a@gmail.com
+          git config user.name NielsHoogeveen1990
+          pwd
+          cat manifests/deployment.yaml
+          pwd
+          sed -i "s+nielshoogeveen1990/gitops-app.*+nielshoogeveen1990/gitops-app:app-$RUN_NUMBER+g" manifests/deployment.yaml
+          cat manifests/deployment.yaml
+          git add .
+          git commit -m 'Done  by Github Actions   Job changemanifest: ${{ github.run_number }}'
+          git push origin main
+        env:
+          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+          GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
+          RUN_NUMBER: ${{ github.run_number }}
