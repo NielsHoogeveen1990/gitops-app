@@ -14,5 +14,22 @@ jobs:
       - uses: actions/checkout@v3
         name: changing the deployment of git repo
         with:
-          repository: 'tanmaybhandge/App-Manifest-'
+          repository: 'NielsHoogeveen1990/gitops-manifest'
           token: ${{ secrets.GIT_PASSWORD }}
+      - name: modify the image
+        run: |
+          git config user.email hoogeveen.n.a@gmail.com
+          git config user.name NielsHoogeveen1990
+          pwd
+          cat deployment.yaml
+          pwd
+          sed -i "s+nielshoogeveen1990/images.*+nielshoogeveen1990/images:app-$RUN_NUMBER+g" deployment.yaml
+          cat deployment.yaml
+          git add .
+          git commit -m 'Done  by Github Actions   Job changemanifest: ${{ github.run_number }}'
+          git push origin main
+        env:
+          GIT_USERNAME: ${{ secrets.GIT_USERNAME }}
+          GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
+          RUN_NUMBER: ${{ github.run_number }}
+
