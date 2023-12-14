@@ -1,0 +1,18 @@
+name: modifygit
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  modifygit:
+    needs: docker
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        name: changing the deployment of git repo
+        with:
+          repository: 'tanmaybhandge/App-Manifest-'
+          token: ${{ secrets.GIT_PASSWORD }}
