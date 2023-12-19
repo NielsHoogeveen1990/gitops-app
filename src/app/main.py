@@ -23,7 +23,7 @@ async def root():
 
 @app.get("/welcome")
 async def welcome():
-    return {"message": "Welcome user new!"}
+    return {"message": "Welcome user to the new API version!"}
 
 
 if __name__ == "__main__":
